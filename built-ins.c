@@ -12,7 +12,7 @@ int builtin_checker(char *command)
 {
 	char *built_ins[] = {
 		"cd", "env",
-		"exit", NULL
+		"exit", "setenv", NULL
 	};
 	int i = 0;
 
@@ -38,8 +38,10 @@ int builtin_checker(char *command)
  * Return: nothing
  */
 
-void builtin_handler(char **command, char **argv, int *status, int index)
+void builtin_handler(char **command, char **argv, int *status, int index, int ac)
 {
+	(void) ac;
+
 	if (_strcmp(command[0], "exit") == 0)
 		shell_exit(command, argv, status, index);
 	else if (_strcmp(command[0], "env") == 0)

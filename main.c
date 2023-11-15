@@ -31,7 +31,7 @@ int main(int ac, char **argv)
 			continue;
 
 		if (builtin_checker(cmd[0]))
-			builtin_handler(cmd, argv, &status, index);
+			builtin_handler(cmd, argv, &status, index, ac);
 		else
 			status = _exec(cmd, argv, index);
 	} while (1);
