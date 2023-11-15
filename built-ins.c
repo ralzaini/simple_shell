@@ -1,5 +1,13 @@
 #include "shell.h"
 
+/**
+ * builtin_checker - a function passed to checkthe entered command
+ *
+ * @command: passed command to the function.
+ *
+ * Return: 1 is builtin or 0 if not
+*/
+
 int builtin_checker(char *command)
 {
 	char *built_ins[] = {
@@ -18,6 +26,17 @@ int builtin_checker(char *command)
 	return (0);
 }
 
+/**
+ * builtin_handler - a function to handel the differenct args.
+ *
+ * @command: passed command to the function.
+ * @argv: argument passed to the function.
+ * @status: status passed to the function.
+ * @index: index passed to the function.
+ *
+ * Return: nothing
+ */
+
 void builtin_handler(char **command, char **argv, int *status, int index)
 {
 	if (_strcmp(command[0], "exit") == 0)
@@ -25,6 +44,17 @@ void builtin_handler(char **command, char **argv, int *status, int index)
 	else if (_strcmp(command[0], "env") == 0)
 		env_print(command, status);
 }
+
+/**
+ * shell_exit - a function to handel the differenct args.
+ *
+ * @command: passed command to the function.
+ * @argv: argument passed to the function.
+ * @status: status passed to the function.
+ * @index: index passed to the function.
+ *
+ * Return: nothin
+ */
 
 void shell_exit(char **command, char **argv, int *status, int index)
 {
@@ -52,6 +82,15 @@ void shell_exit(char **command, char **argv, int *status, int index)
 	free_memory(command);
 	exit(value);
 }
+
+/**
+ * env_print - a function to print env
+ *
+ * @command: passed command
+ * @status: passed status
+ *
+ * return: nothing
+ */
 
 void env_print(char **command, int *status)
 {

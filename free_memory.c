@@ -1,21 +1,38 @@
 #include "shell.h"
 
+/**
+ * free_memory - a function to free allocated memory
+ * @str: array of arguments
+ *
+ * Return: nothing
+*/
+
 void free_memory(char **str)
 {
-	int i;
+	int i = 0;
 
 	if (!str)
 	{
 		return;
 	}
-	for (i = 0; str[i]; i++)
+	while (str[i])
 	{
 		free(str[i]);
 		str[i] = NULL;
+		i++;
 	}
 	free(str);
 	str = NULL;
 }
+
+/**
+ * _printerror - a function to print error.
+ * @name: passed variable.
+ * @input: passed variable.
+ * @index: index passed to the variable.
+ *
+ * Return: nothing
+*/
 
 void _printerror(char *name, char *input, int index)
 {

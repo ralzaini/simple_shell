@@ -1,18 +1,25 @@
 #include "shell.h"
 
-char *_itoa(int j)
+/**
+ * _itoa - convert string to integer
+ * @index: integer
+ *
+ * Return: converted integer
+ */
+
+char *_itoa(int index)
 {
 	int i = 0;
 	char input[20];
 
-	if (j == 0)
+	if (index == 0)
 		input[i++] = '0';
 	else
 	{
-		while (j > 0)
+		while (index > 0)
 		{
-			input[i++] = (j % 10) + '0';
-			j /= 10;
+			input[i++] = (index % 10) + '0';
+			index /= 10;
 		}
 	}
 	input[i] = '\0';
@@ -46,6 +53,17 @@ void rev_string(char *str)
 
 }
 
+/**
+ * print_errorno - a function to print errors.
+ *
+ * @command: the passed command
+ * @idx: the passed index
+ * @message: the passed message
+ * @arg: the passed argument
+ *
+ * Return: nothing
+*/
+
 void print_errorno(char *command, char *idx, char *message, char *arg)
 {
 	 write(STDERR_FILENO, command, _strlen(command));
@@ -56,12 +74,19 @@ void print_errorno(char *command, char *idx, char *message, char *arg)
 	 write(STDERR_FILENO, "\n", 1);
 }
 
+/**
+ * pos_number - a function to check if the input is a positive number
+ * @str: string to check
+ *
+ * Return: 1 if number, 0 if not
+*/
+
 int pos_number(char *str)
 {
 	int i = 0;
 
 	if (!str)
-		return(0);
+		return (0);
 	while (str[i])
 	{
 		if (str[i] < '0' || str[i] > '9')
@@ -70,6 +95,13 @@ int pos_number(char *str)
 	}
 	return (1);
 }
+
+/**
+ * _atoi - convert string to integer
+ * @str: string
+ *
+ * Return: converted integer
+ */
 
 int _atoi(char *str)
 {

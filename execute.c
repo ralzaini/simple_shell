@@ -1,9 +1,18 @@
 #include "shell.h"
 
+/**
+ * _exec - a function to execute commands
+ * @command: commands array passed
+ * @argv: arguments array passed
+ * @index: index of the line passed
+ *
+ * Return: status
+*/
+
 int _exec(char **command, char **argv, int index)
 {
-	pid_t child;
-	int status;
+	pid_t child_pid;
+	int child_status;
 	char *full_input;
 
 	full_input = _getpath(command[0]);
@@ -11,9 +20,9 @@ int _exec(char **command, char **argv, int index)
 	{
 		_printerror(argv[0], command[0], index);
 		free_memory(command);
-		return(127);
+		return (127);
 	}
-	child = fork();
+	child_pid = fork();
 	if (child == 0)
 	{
 		if (execve(full_input, command, environ) == -1)
@@ -25,10 +34,10 @@ int _exec(char **command, char **argv, int index)
 	}
 	else
 	{
-		waitpid(child, &status, 0);
+		waitpid(child_pid, &child_status, 0);
 		free_memory(command);
 		free(full_input);
 		full_input = NULL;
 	}
-	return (WEXITSTATUS(status));
+	return (WEXITSTATUS(child_status));
 }
