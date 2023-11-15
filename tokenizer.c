@@ -1,14 +1,14 @@
 #include "shell.h"
 
 /**
- * tokenizer - parse the string to different lines.
+ * _tokenizers - parse the string to different lines.
  *
  * @command_line: the line to parse.
  *
  * Return: return table of commands
 */
 
-char **tokenizer(char *command_line)
+char **_tokenizers(char *command_line)
 {
 	char *token_line = NULL, *tmp = NULL, **command = NULL;
 	int count = 0, i = 0;

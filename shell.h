@@ -42,12 +42,13 @@ char *_strcpy(char *dest, char *src);
 char *_strcat(char *dest, char *src);
 
 /* Tokenizer (tokrnizer.c) */
-char **tokenizer(char *line);
+char **_tokenizers(char *line);
 
-/* BUILTIN_CHECKER */
+/* BUILTIN_CHECKER (built-ins.c & built-ins2.c) */
 int builtin_checker(char *command);
 void builtin_handler(char **command, char **argv, int *status, int index);
 void shell_exit(char **command, char **argv, int *status, int index);
 void env_print(char **command, int *status);
+void change_directory(char *command, int *status);
 
 #endif

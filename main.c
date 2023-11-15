@@ -26,7 +26,7 @@ int main(int ac, char **argv)
 			return (status);
 		}
 		index++;
-		cmd = tokenizer(input_line);
+		cmd = _tokenizers(input_line);
 		if (!cmd)
 			continue;
 
