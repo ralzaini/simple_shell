@@ -28,17 +28,18 @@ int builtin_checker(char *command)
 }
 
 /**
- * builtin_handler - a function to handel the differenct args.
+ * handler - a function to handel the differenct args.
  *
  * @command: passed command to the function.
  * @argv: argument passed to the function.
  * @status: status passed to the function.
  * @index: index passed to the function.
+ * @ac: passed argument to the function.
  *
  * Return: nothing
  */
 
-void builtin_handler(char **command, char **argv, int *status, int index, int ac)
+void handler(char **command, char **argv, int *status, int index, int ac)
 {
 	(void) ac;
 

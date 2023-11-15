@@ -46,7 +46,7 @@ char **_tokenizers(char *line);
 
 /* BUILTIN_CHECKER (built-ins.c & built-ins2.c) */
 int builtin_checker(char *command);
-void builtin_handler(char **command, char **argv, int *status, int index, int ac);
+void handler(char **command, char **argv, int *status, int index, int ac);
 void shell_exit(char **command, char **argv, int *status, int index);
 void env_print(char **command, int *status);
 void change_directory(char *command, int *status);
