@@ -23,7 +23,7 @@ int _exec(char **command, char **argv, int index)
 		return (127);
 	}
 	child_pid = fork();
-	if (child == 0)
+	if (child_pid == 0)
 	{
 		if (execve(full_input, command, environ) == -1)
 		{
